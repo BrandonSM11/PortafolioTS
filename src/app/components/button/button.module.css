@@ -1,0 +1,46 @@
+.button {
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.md {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+}
+
+.lg {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.1rem;
+}
+
+.solid {
+  background: linear-gradient(135deg, #0070f3, #00c6ff);
+  color: black;
+}
+
+.solid:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #005ad3, #00a4e0);
+  box-shadow: 0 0 15px rgba(0, 150, 255, 0.6);
+}
+
+.outline {
+  background: transparent;
+  border: 2px solid #00c6ff;
+  color: #00c6ff;
+}
+
+.outline:hover {
+  background: rgba(0, 198, 255, 0.1);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 198, 255, 0.4);
+}

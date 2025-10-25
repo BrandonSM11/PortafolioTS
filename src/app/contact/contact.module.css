@@ -1,0 +1,102 @@
+.container {
+  background-color: black;
+  min-height: 100vh;
+  padding: 6rem 1.5rem;
+  color: white;
+}
+
+.subtitle {
+  color: #00ffff;
+  font-family: 'Rajdhani', 'Inter', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-family: 'Rajdhani', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.iconBox {
+  border: 2px solid #00ffff;
+  border-radius: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.iconBox:hover {
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.infoTitle {
+  font-family: 'Rajdhani', 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.infoSubtitle {
+  font-family: 'Rajdhani', 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+.form {
+  background: transparent;
+  box-shadow: 0 0 10px #00ffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.label {
+  font-family: 'Rajdhani', 'Inter', sans-serif; 
+  font-weight: 600;
+  padding: 1px;
+}
+
+.input, .textarea {
+  font-family: 'Rajdhani', 'Inter', sans-serif;
+  background: transparent;
+  box-shadow: 0 0 3px #00ffff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  color: white;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.input:focus, .textarea:focus {
+  box-shadow: 0 0 10px #00ffff
+}
+
+.button {
+  font-family: 'Rajdhani', 'Inter', sans-serif;
+  width: 100%;
+  background-color: #00ffff;
+  color: black;
+  font-weight: 600;
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: all 0.3s;
+}
+
+.button:hover {
+  box-shadow: 0 0 10px #00ffff;
+  transition: 0.3 ease;
+}
+
