@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Mail, MessageSquare, User, Send } from "lucide-react";
 import Button from "../components/button/Button";
 import styles from "./contact.module.css";
+import { sendContactMessage } from "../service/contact";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,18 +13,54 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormData({ name: "", email: "", message: "" });
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+
+    setErrors(prev => ({ ...prev, [e.target.name]: "" }));
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const newErrors = { name: "", email: "", message: "" };
+    const emailRegex = /\S+@\S+\.\S+/;
+    let hasError = false;
+
+    if (!formData.name) {
+      newErrors.name = "El nombre es obligatorio";
+      hasError = true;
+    }
+    if (!formData.email) {
+      newErrors.email = "El email es obligatorio";
+      hasError = true;
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Email inválido";
+      hasError = true;
+    }
+    if (!formData.message) {
+      newErrors.message = "El mensaje es obligatorio";
+      hasError = true;
+    }
+
+    if (hasError) {
+      setErrors(newErrors);
+      return;
+    }
+
+    try {
+      await sendContactMessage(formData);
+      alert("Mensaje enviado con éxito!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (err: any) {
+      console.error(err);
+      alert(err.message || "Error al enviar mensaje");
+    }
   };
 
   return (
@@ -51,7 +88,7 @@ const Contact = () => {
 
               <div className="flex items-center gap-4">
                 <div className={styles.iconBox}>
-                <MessageSquare className="w-5 h-5 text-primary" />
+                  <MessageSquare className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <p className={styles.infoLabel}>Response Time</p>
@@ -61,24 +98,25 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Right Side - Form */}
           <div className={styles.rightSide}>
             <form onSubmit={handleSubmit} className={styles.form}>
-              <div className="space-y-4">
+              {/* Name */}
+              <div className="space-y-1">
                 <label className={styles.label}>
-                  <User color="#00cccc" className="w-4 h-4 text-primary inline-block mr-1 " />
+                  <User color="#00cccc" className="w-4 h-4 text-primary inline-block mr-1" />
                   Name
-                  </label>
-                <input  
+                </label>
+                <input
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your name"
                   className={styles.input}
                 />
+                {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-1 mt-4">
                 <label className={styles.label}>
                   <Mail color="#00cccc" className="w-4 h-4 text-primary inline-block mr-1" />
                   Email
@@ -91,9 +129,10 @@ const Contact = () => {
                   placeholder="your.email@example.com"
                   className={styles.input}
                 />
+                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-1 mt-4">
                 <label className={styles.label}>
                   <MessageSquare color="#00cccc" className="w-4 h-4 text-primary inline-block mr-1" />
                   Message
@@ -106,6 +145,7 @@ const Contact = () => {
                   rows={5}
                   className={styles.textarea}
                 />
+                {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
               </div>
 
               <Button type="submit" size="lg" className={styles.button}>

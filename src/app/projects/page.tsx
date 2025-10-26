@@ -16,9 +16,10 @@ const Projects = () => {
 
    const router = useRouter();
 
-  const handleDetails = (id: number) => {
-    router.push(`/projects/${id}`);
-  };
+const handleDetails = (slug: string) => {
+  router.push(`/projects/${slug}`);
+};
+
 
   return (
     <div className="min-h-screen py-10 px-5">
@@ -65,7 +66,7 @@ const Projects = () => {
                     <Button
                       size="sm"
                       variant="outline"
-                      onClick={() => handleDetails(project.id)}
+                      onClick={() => handleDetails(project.slug)}
                       className="neon-border bg-background/80 hover:bg-primary/20"
                      
                             
