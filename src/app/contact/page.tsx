@@ -57,10 +57,9 @@ const Contact = () => {
       await sendContactMessage(formData);
       alert("Mensaje enviado con éxito!");
       setFormData({ name: "", email: "", message: "" });
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
-      alert(err.message || "Error al enviar mensaje");
-    }
+      }
   };
 
   return (
