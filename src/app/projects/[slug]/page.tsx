@@ -18,26 +18,26 @@ const Details = () => {
   }
 
   return (
-    <div className="min-h-screen py-20 px-6 flex justify-center">
-      <div className="max-w-4xl w-full glass-card rounded-xl p-8">
+    <div className="min-h-screen py-20 px-6 flex justify-center bg-black">
+      <div className="max-w-4xl w-full glass-card rounded-xl p-8 text-white">
         <img
           src={myElement.image}
           alt={myElement.title}
-          className="w-full h-64 object-cover rounded-lg mb-6"
+          className="w-full h-64 object-cover rounded-lg mb-6 text-white"
         />
 
-        <h1 className="text-4xl font-display font-bold text-primary mb-4">
+        <h1 className="text-4xl font-display font-bold text-primary mb-4 text-white">
           {myElement.title}
         </h1>
-        <p className="text-foreground/70 text-lg leading-relaxed mb-6">
+        <p className="text-foreground/70 text-lg leading-relaxed mb-6 text-white">
           {myElement.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-8 text-white">
           {myElement.tech.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 text-sm bg-primary/10 border border-primary/30 rounded-full text-primary"
+              className="px-3 py-1 text-sm bg-primary/10 border border-primary/30 rounded-full text-white "
             >
               {tech}
             </span>
@@ -46,7 +46,7 @@ const Details = () => {
 
         <button
           onClick={() => router.push("/projects")}
-          className="px-5 py-2 rounded-lg bg-primary text-white hover:bg-primary/80 transition-all"
+          className="px-5 py-2 rounded-lg bg-primary text-white hover:bg-primary/80 transition-all text-white"
         >
           ← Back to Projects
         </button>
