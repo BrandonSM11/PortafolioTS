@@ -1,8 +1,6 @@
-// /app/api/contact/route.ts
 import dbConnection from "../../lib/db";
 import ContactMessageModel from "../../database/models/contact";
 
-// POST → enviar mensaje
 export async function POST(req: Request) {
   await dbConnection();
   const { name, email, message } = await req.json();

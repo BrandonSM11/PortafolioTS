@@ -22,39 +22,37 @@ const handleDetails = (slug: string) => {
 
 
   return (
-    <div className="min-h-screen py-10 px-5">
+    <div className="min-h-screen py-10 px-5 bg-black">
       <div className="container mx-auto max-w-7xl">
         <div className=" text-center">
-          <p className="text-primary font-display text-lg tracking-wider uppercase mb-2">
+          <p className="text-primary font-display text-lg tracking-wider uppercase mb-2 text-white">
             Portfolio
           </p>
-          <h1 className="text-5xl md:text-6xl font-display font-bold text-glow mb-4">
+          <h1 className="text-5xl md:text-6xl font-display font-bold text-glow mb-4 text-white">
             Featured Projects
           </h1>
-          <p className="text-foreground/70 text-lg max-w-2xl mx-auto py-1.5">
+          <p className="text-foreground/70 text-lg max-w-2xl mx-auto py-1.5 text-white">
             Explore my collection of futuristic web applications and digital experiences
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-white">
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className="glass-card p-1 rounded-xl group hover:neon-glow transition-all duration-500 animate-fade-in-up"
+              className="glass-card p-1 rounded-xl group hover:neon-glow transition-all duration-500 animate-fade-in-up text-white"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="bg-card rounded-lg overflow-hidden">
+              <div className="bg-card rounded-lg overflow-hidden text-white">
                 {/* Project Image */}
                 <div className="relative overflow-hidden h-48">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 text-white"
                   />
-                  <div className="absolute inset-0  from-card to-transparent opacity-60" />
+                  <div className="absolute inset-0  from-card to-transparent opacity-60 text-white" />
                   
-                  {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                     <Button
                       size="sm"

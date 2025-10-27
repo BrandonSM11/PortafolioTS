@@ -13,7 +13,7 @@ export const projects = [
     slug: "crypto-trading-terminal",
     description: "Advanced cryptocurrency trading interface with real-time market data",
     tech: ["Next.js", "WebSockets", "Chart.js"],
-    image: "https://images.unsplash.com/photo-1642790551116-18e150f248e8?w=800&h=600&fit=crop",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-i8QmDmZZOwyVfGnz32LgzPnBcVEKSSJ-aA&s",
   },
   {
     id: 3,
